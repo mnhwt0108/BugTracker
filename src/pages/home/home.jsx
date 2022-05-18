@@ -1,20 +1,34 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import "./home.scss";
 import NavBar from "../../components/navbar/navbar";
 import Featured from "../../components/featured/featured";
 import List from "../../components/list/list";
+import {getRandomList} from "../../actions/index";
 
-const home = () => {
+const Home = ({type}) => {
+  const [lists, setLists] = useState([]);
+  const [genre, setGenre] = useState('');
+
+  useEffect(() => {
+      try {
+        getRandomList()
+        .then(res => {
+          setLists(res.data);
+        });
+      } catch (error) {
+        console.log(error);
+      }  
+  }, [type, genre]);
+
   return (
     <div className="home">
       <NavBar />
-      <Featured />
-      <List />
-      <List />
-      <List />
-      <List />
+      <Featured type={type} />
+      {lists.map((list, index) => (
+        <List key={index} list={list} />
+      ))}
     </div>
   );
 };
 
-export default home;
+export default Home;
