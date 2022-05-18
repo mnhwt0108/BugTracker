@@ -1,9 +1,10 @@
-import React, {useState, useEffect} from "react";
-import "./home.scss";
-import NavBar from "../../components/navbar/navbar";
-import Featured from "../../components/featured/featured";
-import List from "../../components/list/list";
-import {getRandomList} from "../../actions/index";
+import React, {useState, useEffect} from 'react';
+import NavBar from '../../components/navbar/navbar';
+import Featured from '../../components/featured/featured';
+import List from '../../components/list/list';
+
+import './home.scss';
+import {getRandomList} from '../../actions/index';
 
 const Home = ({type}) => {
   const [lists, setLists] = useState([]);

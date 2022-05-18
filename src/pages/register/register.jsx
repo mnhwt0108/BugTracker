@@ -1,6 +1,5 @@
-import { useRef } from "react";
-import { useState } from "react";
-import "./register.scss";
+import { useState, useRef} from 'react';
+import './register.scss';
 
 export default function Register() {
   const [email, setEmail] = useState("");

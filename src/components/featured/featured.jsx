@@ -1,5 +1,6 @@
+import { InfoOutlined, PlayArrow } from "@material-ui/icons";
 import { useEffect, useState } from "react";
-import { MdPlayArrow, MdOutlineInfo } from "react-icons/md";
+
 import "./featured.scss";
 import {getRandomContent} from '../../actions/index';
 
@@ -16,8 +17,6 @@ export default function Featured({ type }) {
       console.log(error);
     }
   },[type]);
-
-  console.log(content);
 
   return (
     <div className="featured">
@@ -56,11 +55,11 @@ export default function Featured({ type }) {
         </span>
         <div className="buttons">
           <button className="play">
-            <MdPlayArrow />
+            <PlayArrow />
             <span>Play</span>
           </button>
           <button className="more">
-            <MdOutlineInfo />
+            <InfoOutlined />
             <span>Info</span>
           </button>
         </div>

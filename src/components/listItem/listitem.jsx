@@ -1,14 +1,9 @@
-import "./listitem.scss";
-import {
-  MdPlayArrow,
-  MdAddCircleOutline,
-  MdOutlineThumbUp,
-  MdOutlineThumbDown,
-} from "react-icons/md";
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import {getMovie} from "../../actions/index";
-import { useHistory } from "react-router-dom";
+import { PlayArrow, Add, ThumbUpAltOutlined, ThumbDownOutlined} from '@material-ui/icons';
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+
+import './listitem.scss';
+import {getMovie} from '../../actions/index';
 
 export default function ListItem({ index, item }) {
   const [isHovered, setIsHovered] = useState(false);
@@ -29,7 +24,6 @@ export default function ListItem({ index, item }) {
 
   return (
     <Link to={{pathname: `/watch`, movie: movie}}>
-        {console.log(movie)}
       <div
         className="listItem"
         style={{ left: isHovered && index * 225 - 50 + index * 2.5 }}
@@ -45,10 +39,10 @@ export default function ListItem({ index, item }) {
             <video src={movie.trailer} autoPlay={true} loop />
             <div className="itemInfo">
               <div className="icons">
-                <MdPlayArrow className="icon" />
-                <MdAddCircleOutline className="icon" />
-                <MdOutlineThumbUp className="icon" />
-                <MdOutlineThumbDown className="icon" />
+                <PlayArrow  className="icon" />
+                <Add  className="icon" />
+                <ThumbUpAltOutlined  className="icon" />
+                <ThumbDownOutlined  className="icon" />
               </div>
               <div className="itemInfoTop">
                 <span>{movie.duration}</span>

@@ -1,4 +1,4 @@
-import { MdArrowBackIosNew } from "react-icons/md";
+import { ArrowBackOutlined } from "@material-ui/icons";
 import { useLocation, Link } from "react-router-dom";
 import "./watch.scss";
 
@@ -10,7 +10,7 @@ export default function Watch() {
     <div className="watch">
       <Link to="/">
         <div className="back">
-          <MdArrowBackIosNew />
+          <ArrowBackOutlined />
           Home
         </div>
       </Link>

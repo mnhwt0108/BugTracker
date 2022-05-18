@@ -1,13 +1,10 @@
-import React from "react";
-import { BsSearch, BsFillBellFill } from "react-icons/bs";
-import { MdArrowDropDown } from "react-icons/md";
-import { useState } from "react";
-import {Link} from "react-router-dom";
+import { ArrowDropDown, Notifications, Search } from '@material-ui/icons';
+import React, { useState } from 'react';
+import {Link} from 'react-router-dom';
 
-import "./navbar.scss";
+import './navbar.scss';
 
-const navbar = () => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
+const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   window.onscroll = () => {
@@ -16,8 +13,7 @@ const navbar = () => {
   };
 
   return (
-    <div className={`navbar ${isScrolled ? "navbar--scrolled" : ""}`}>
-      <div className="navBar">
+    <div className={isScrolled ? "navbar scrolled" : "navbar"}>
         <div className="container">
           <div className="left">
             <img
@@ -37,21 +33,15 @@ const navbar = () => {
             <span>My List</span>
           </div>
           <div className="right">
-            <div className="search">
-              <BsSearch />
-              <input type="text" placeholder="Search" />
-            </div>
+            <Search className="icon" />
             <span>KID</span>
-            <span className="icon">
-              <BsFillBellFill />
-            </span>
-
+            <Notifications className="icon" />
             <img
               src="https://images.pexels.com/photos/6899260/pexels-photo-6899260.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
               alt=""
             />
             <div className="profile">
-              <MdArrowDropDown className="icon" />
+              <ArrowDropDown className="icon" />
               <div className="options">
                 <span>Settings</span>
                 <span>Logout</span>
@@ -59,9 +49,8 @@ const navbar = () => {
             </div>
           </div>
         </div>
-      </div>
     </div>
   );
 };
 
-export default navbar;
+export default Navbar;

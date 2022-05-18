@@ -1,7 +1,8 @@
-import { MdArrowBackIosNew, MdArrowForwardIos } from "react-icons/md";
-import { useRef, useState } from "react";
-import ListItem from "../listItem/listitem";
-import "./list.scss";
+import { ArrowBackIosOutlined, ArrowForwardIosOutlined} from '@material-ui/icons';
+import { useRef, useState } from 'react';
+
+import ListItem from '../listItem/listitem';
+import './list.scss';
 
 export default function List({list}) {
   const [isMoved, setIsMoved] = useState(false);
@@ -25,7 +26,7 @@ export default function List({list}) {
     <div className="list">
       <span className="listTitle">{list.title}</span>
       <div className="wrapper">
-        <MdArrowBackIosNew
+        <ArrowBackIosOutlined
           className="sliderArrow left"
           onClick={() => handleClick("left")}
           style={{ display: !isMoved && "none" }}
@@ -35,7 +36,7 @@ export default function List({list}) {
             <ListItem key={index} item={item}/>
           ))}
         </div>
-        <MdArrowForwardIos
+        <ArrowForwardIosOutlined
           className="sliderArrow right"
           onClick={() => handleClick("right")}
         />
