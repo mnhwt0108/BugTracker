@@ -1,2 +1,3 @@
-# BugTracker
+# NetflixClone
+
 WAD Assignment
