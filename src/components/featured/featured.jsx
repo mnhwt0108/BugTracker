@@ -47,7 +47,7 @@ export default function Featured({ type }) {
       />
       <div className="info">
         <img
-          src={content.img}
+          src={content.imgTitle}
           alt=""
         />
         <span className="desc">
