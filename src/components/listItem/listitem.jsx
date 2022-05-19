@@ -1,9 +1,15 @@
-import { PlayArrow, Add, ThumbUpAltOutlined, ThumbDownOutlined} from '@material-ui/icons';
-import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import {
+  PlayCircleFilledRounded,
+  Add,
+  ThumbUpAltOutlined,
+  ThumbDownOutlined,
+  ArrowDropDownCircle
+} from "@material-ui/icons";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
-import './listitem.scss';
-import {getMovie} from '../../actions/index';
+import "./listitem.scss";
+import { getMovie } from "../../actions/index";
 
 export default function ListItem({ index, item }) {
   const [isHovered, setIsHovered] = useState(false);
@@ -11,46 +17,47 @@ export default function ListItem({ index, item }) {
 
   useEffect(() => {
     try {
-      getMovie(item)
-        .then(res => {
-          setMovie(res.data);
-        });
+      getMovie(item).then((res) => {
+        setMovie(res.data);
+      });
     } catch (error) {
       console.log(error);
     }
-  },[item]);
+  }, [item]);
 
-  // const trailer ="https://player.vimeo.com/external/371433846.sd.mp4?s=236da2f3c0fd273d2c6d9a064f3ae35579b2bbdf&profile_id=139&oauth2_token_id=57447761";
 
   return (
-    <Link to={{pathname: `/watch`, movie: movie}}>
+    <Link to={{ pathname: '/watch', movie: movie }}>
       <div
         className="listItem"
         style={{ left: isHovered && index * 225 - 50 + index * 2.5 }}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <img
-          src={movie.img}
-          alt={movie.title}
-        />
+        <div className="imgList">
+          <img src={movie.img} alt={movie.title} />
+        </div>
         {isHovered && (
           <>
             <video src={movie.trailer} autoPlay={true} loop />
             <div className="itemInfo">
-              <div className="icons">
-                <PlayArrow  className="icon" />
-                <Add  className="icon" />
-                <ThumbUpAltOutlined  className="icon" />
-                <ThumbDownOutlined  className="icon" />
+              <div className="buttons">
+                <div className="icons">
+                  <PlayCircleFilledRounded className="icon" />
+                  <Add className="icon" />
+                  <ThumbUpAltOutlined className="icon" />
+                  <ThumbDownOutlined className="icon" />
+                  <ArrowDropDownCircle className="icon icon-info" />
+                </div>
               </div>
+
               <div className="itemInfoTop">
-                <span>{movie.duration}</span>
-                <span className="limit">+{movie.limit}</span>
-                <span>{movie.year}</span>
+                <p className="item-text limit">+{movie.limit}</p>
+                <span className="item-text">{movie.year}</span>
+                <span className="item-text">1h45p</span>
               </div>
-              <div className="desc">{movie.description}</div>
-              <div className="genre">{movie.genre}</div>
+              {/* <div className="desc">{movie.description}</div>
+              <div className="genre">{movie.genre}</div> */}
             </div>
           </>
         )}

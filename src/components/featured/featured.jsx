@@ -23,7 +23,7 @@ export default function Featured({ type }) {
       {type && (
         <div className="category">
           <span>{type === "movies" ? "Movies" : "Series"}</span>
-          <select name="genre" id="genre">
+          <select name="genre" id="genre" >
             <option>Genre</option>
             <option value="adventure">Adventure</option>
             <option value="comedy">Comedy</option>
@@ -47,7 +47,7 @@ export default function Featured({ type }) {
       />
       <div className="info">
         <img
-          src={content.img}
+          src={content.imgTilte}
           alt=""
         />
         <span className="desc">
