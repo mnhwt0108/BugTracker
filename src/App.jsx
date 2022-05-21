@@ -3,11 +3,12 @@ import Login from './pages/login/login';
 import Register from './pages/register/register';
 import Watch from './pages/watch/watch';
 import {BrowserRouter as Router, Routes, Route, Navigate} from 'react-router-dom';
-
+import {useContext} from 'react';
+import {AuthContext} from './authContext/AuthContext';
 import './app.scss';
 
 const App = () => {
-  const user = true;
+  const { user } = useContext(AuthContext);
   return (
     <Router>
       <Routes>
@@ -18,7 +19,7 @@ const App = () => {
           <>
             <Route path="/movies" element={<Home type="movies"/>} />
             <Route path="/series" element={<Home type="series"/>} />
-            <Route path="/watch" element={<Watch/>} />
+            <Route path="/watch/:watchId" element={<Watch/>} />
           </>
         )}
       </Routes>
