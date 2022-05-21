@@ -1,9 +1,10 @@
-import "./app.scss";
-import Home from "./pages/home/home";
-import Login from "./pages/login/login";
-import Register from "./pages/register/register";
-import Watch from "./pages/watch/watch";
-import {BrowserRouter as Router, Routes, Route, Navigate} from "react-router-dom";
+import Home from './pages/home/home';
+import Login from './pages/login/login';
+import Register from './pages/register/register';
+import Watch from './pages/watch/watch';
+import {BrowserRouter as Router, Routes, Route, Navigate} from 'react-router-dom';
+
+import './app.scss';
 
 const App = () => {
   const user = true;

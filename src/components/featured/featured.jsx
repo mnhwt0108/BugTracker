@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import "./featured.scss";
 import {getRandomContent} from '../../actions/index';
 
-export default function Featured({ type }) {
+export default function Featured({ type, setGenre }) {
   const [content, setContent] = useState({});
 
   useEffect(() => {
@@ -18,12 +18,18 @@ export default function Featured({ type }) {
     }
   },[type]);
 
+  console.log(content);
+
   return (
     <div className="featured">
       {type && (
         <div className="category">
           <span>{type === "movies" ? "Movies" : "Series"}</span>
-          <select name="genre" id="genre">
+          <select
+            name="genre"
+            id="genre"
+            onChange={(e) => setGenre(e.target.value)}
+          >
             <option>Genre</option>
             <option value="adventure">Adventure</option>
             <option value="comedy">Comedy</option>
@@ -41,18 +47,10 @@ export default function Featured({ type }) {
           </select>
         </div>
       )}
-      <img
-        src={content.img}
-        alt=""
-      />
+      <img src={content.img} alt="" />
       <div className="info">
-        <img
-          src={content.img}
-          alt=""
-        />
-        <span className="desc">
-          {content.description}
-        </span>
+        <img src={content.imgTitle} alt="" />
+        <span className="desc">{content.desc}</span>
         <div className="buttons">
           <button className="play">
             <PlayArrow />
