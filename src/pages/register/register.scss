@@ -13,17 +13,18 @@
             .logo {
                 height: 40px;
             }
-            .loginButton {
-                background-color: red;
-                border: none;
-                color: white;
-                border-radius: 5px;
-                padding: 5px 15px;
-                font-size: 16px;
-                font-weight: 500;
-                cursor: pointer;
-            }
         }
+    }
+    .loginButton {
+        background-color: red;
+        border: none;
+        color: white;
+        border-radius: 5px;
+        padding: 5px 15px;
+        font-size: 16px;
+        font-weight: 500;
+        cursor: pointer;
+        text-decoration: none;
     }
     .container {
         width: 100%;

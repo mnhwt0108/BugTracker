@@ -1,4 +1,6 @@
 import { useContext, useState } from "react";
+import { Link } from 'react-router-dom';
+
 import './login.scss';
 import { AuthContext } from "../../authContext/AuthContext";
 import { login } from "../../authContext/apiCall";
@@ -40,8 +42,9 @@ export default function Login() {
           <button className="loginButton" onClick={handleLogin}>
             Sign In
           </button>
-          <span>
-            New to Netflix? <b>Sign up now.</b>
+          <span >
+            New to Netflix? 
+            <Link to="/register" className="signUp"><b> Sign up now.</b></Link>
           </span>
           <small>
             This page is protected by Google reCAPTCHA to ensure you're not a

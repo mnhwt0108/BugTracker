@@ -1,5 +1,5 @@
 import { useState, useRef} from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 import './register.scss';
 import { registerUser } from '../../actions/index';
@@ -35,12 +35,17 @@ export default function Register() {
     <div className="register">
       <div className="top">
         <div className="wrapper">
-          <img
-            className="logo"
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/2560px-Netflix_2015_logo.svg.png"
-            alt=""
-          />
-          <button className="loginButton">Sign In</button>
+          <Link to="/register">
+            <img
+              className="logo"
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/2560px-Netflix_2015_logo.svg.png"
+              alt=""
+            />
+          </Link>
+          <Link to="/login" className="loginButton">
+            <span>Sign In</span>
+          </Link>
+          {/* <button className="loginButton">Sign In</button> */}
         </div>
       </div>
       <div className="container">

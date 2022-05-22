@@ -9,6 +9,7 @@ export default function ListItem({ index, item }) {
   const [isHovered, setIsHovered] = useState(false);
   const [movie, setMovie] = useState({});
 
+
   useEffect(() => {
     try {
       getMovie(item)
