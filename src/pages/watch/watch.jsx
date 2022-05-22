@@ -5,9 +5,7 @@ import "./watch.scss";
 
 export default function Watch() {
   const location = useLocation();
-  const movie = location.movie;
-
-  const trailer ="https://res.cloudinary.com/nguyenle23/video/upload/v1653143918/moon-knight.mp4";
+  const movieData = location.state.movie;
 
   return (
     <div className="watch">
@@ -17,7 +15,7 @@ export default function Watch() {
           Home
         </div>
       </Link>
-      <video className="video" autoPlay progress controls src={trailer} />
+      <video className="video" autoPlay progress controls src={movieData.trailer} />
     </div>
   );
 }

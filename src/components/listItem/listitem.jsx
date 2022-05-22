@@ -1,6 +1,6 @@
 import { PlayArrow, Add, ThumbUpAltOutlined, ThumbDownOutlined} from '@material-ui/icons';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link  } from 'react-router-dom';
 
 import './listitem.scss';
 import {getMovie} from '../../actions/index';
@@ -8,7 +8,6 @@ import {getMovie} from '../../actions/index';
 export default function ListItem({ index, item }) {
   const [isHovered, setIsHovered] = useState(false);
   const [movie, setMovie] = useState({});
-
 
   useEffect(() => {
     try {
@@ -21,8 +20,9 @@ export default function ListItem({ index, item }) {
     }
   },[item]);
 
+
   return (
-    <Link to={{ pathname: "/watch/" + item, movie: movie }}>
+    <Link to="/watch" state={{movie}} >
       <div
         className="listItem"
         style={{ left: isHovered && index * 225 - 50 + index * 2.5 }}
