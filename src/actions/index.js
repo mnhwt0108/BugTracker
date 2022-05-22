@@ -24,6 +24,10 @@ export const getRandomContent = async(type) => {
             token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
         }
     });
+    var result = request.data[0];
+    if (result.isDestroy === true) {
+        return getRandomContent(type);
+    }
     return request;
 }
 
