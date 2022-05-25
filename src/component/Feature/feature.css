@@ -1,0 +1,57 @@
+
+.featureItem { 
+    width: 100%;
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.featureItem_item {
+    flex: 1; 
+    margin: 0 24px;
+    padding: 30px;
+    align-items: center;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 1px 0px 27px -1px #7d7d7d4b;
+}
+    
+
+.featureItem_item:hover { 
+    -webkit-box-shadow: 1px 0px 27px -1px rgba(125,125,125,0.84); 
+    box-shadow: 1px 0px 27px -1px rgba(125,125,125,0.84);
+}
+
+.feature_item-title  { 
+    font-size: 24px; 
+}
+
+.feature_item-money { 
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+}
+
+.item_money-cost { 
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.item_money-rate { 
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    font-size: 20px;
+}
+
+
+
+.rate_logo {
+    color: rgb(1, 1, 215);
+    margin-left: 5px;
+    font-size: 16px;
+}
+
+.rate_logo.downward { 
+    color: rgb(234, 0, 0);
+}
