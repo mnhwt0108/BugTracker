@@ -1,11 +1,17 @@
 import { InfoOutlined, PlayArrow } from "@material-ui/icons";
 import { useEffect, useState } from "react";
-
+import { Modal, Container, Row, Col } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import "./featured.scss";
 import {getRandomContent} from '../../actions/index';
 
 export default function Featured({ type, setGenre }) {
   const [content, setContent] = useState({});
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   const handleChange = (e) => {
     const value = e.target.value;
@@ -24,14 +30,16 @@ export default function Featured({ type, setGenre }) {
   },[type]);
 
   return (
+    <>
     <div className="featured">
       {type && (
-        <div className="category">
-          <span style={{zIndex: '999'}}>{type === "movies" ? "Movies" : "Series"}</span>
+        <div className="categoryNetflix">
+          <span style={{zIndex: '999', fontSize: '20px'}}>{type === "movies" ? "Movies" : "Series"}</span>
           <select
             name="genre"
             id="genre"
             onChange={handleChange}
+            className="genreSelect"
           >
             <option>Genre</option>
             <option value='adventure'>Adventure</option>
@@ -51,12 +59,48 @@ export default function Featured({ type, setGenre }) {
             <PlayArrow />
             <span>Play</span>
           </button>
-          <button className="more">
+          <button className="more" onClick={handleShow}>
             <InfoOutlined />
             <span>Info</span>
           </button>
         </div>
       </div>
     </div>
+    <Modal 
+        show={show} 
+        onHide={handleClose} 
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+        variant="flat"
+      >
+        <Modal.Header>
+          <Modal.Title id="contained-modal-title-vcenter">
+            <Container>
+              <span>{content.title}</span>
+            </Container>
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="show-grid">
+          <Container>
+            <Row>
+              <Col xs={6} >
+                {content.description}
+              </Col>
+              <Col xs={6} >
+                {content.year}
+                <br />
+                {content.duration}
+                <br />
+                {content.genre}
+              </Col>
+            </Row>
+          </Container>
+        </Modal.Body>
+        <Modal.Footer>
+          <video className="video" autoPlay progress controls src={content.trailer} />
+        </Modal.Footer>
+      </Modal>
+    </>
   );
 }
