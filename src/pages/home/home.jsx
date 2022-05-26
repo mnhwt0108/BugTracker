@@ -23,14 +23,14 @@ const Home = ({type}) => {
 
   console.log(lists);
 
-  var i = lists.length === 0 ? true: false
-  console.log(i) 
-
   return (
     <div className="home">
       <NavBar />
       <Featured type={type} setGenre={setGenre}/>
-      {lists.map((list, index) => (
+      {lists.length === 0 ?
+        <div className="notice">No list for this type <strong>{genre}</strong></div>
+      :
+      lists.map((list, index) => (
         <List key={index} list={list} />
       ))}
     </div>
