@@ -21,8 +21,6 @@ const Home = ({type}) => {
       }  
   }, [type, genre]);
 
-  console.log(lists);
-
   return (
     <div className="home">
       <NavBar />

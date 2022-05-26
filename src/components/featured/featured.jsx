@@ -1,5 +1,7 @@
 import { InfoOutlined, PlayArrow } from "@material-ui/icons";
 import { useEffect, useState } from "react";
+import { Link  } from 'react-router-dom';
+
 import { Modal, Container, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./featured.scss";
@@ -55,10 +57,12 @@ export default function Featured({ type, setGenre }) {
         <img src={content.imgTitle} alt="" />
         <span className="desc">{content.desc}</span>
         <div className="buttons">
-          <button className="play">
-            <PlayArrow />
-            <span>Play</span>
-          </button>
+          <Link to="/movie" state={{content}} className="linkStyle">
+            <button className="play">
+              <PlayArrow />
+              <span>Play</span>
+            </button>
+          </Link>
           <button className="more" onClick={handleShow}>
             <InfoOutlined />
             <span>Info</span>
