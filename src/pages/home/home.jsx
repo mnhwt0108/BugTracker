@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
+
 import NavBar from '../../components/navbar/navbar';
 import Featured from '../../components/featured/featured';
 import List from '../../components/list/list';
-
 import './home.scss';
 import {getRandomList} from '../../actions/index';
 
@@ -12,7 +12,7 @@ const Home = ({type}) => {
 
   useEffect(() => {
       try {
-        getRandomList()
+        getRandomList(type, genre)
         .then(res => {
           setLists(res.data);
         });
@@ -20,6 +20,11 @@ const Home = ({type}) => {
         console.log(error);
       }  
   }, [type, genre]);
+
+  console.log(lists);
+
+  var i = lists.length === 0 ? true: false
+  console.log(i) 
 
   return (
     <div className="home">
