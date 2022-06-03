@@ -21,7 +21,7 @@ export const Home = () => {
             </div>
             <div className="charts">
               <Feature />
-              <Chart />
+              <Chart title="Total amount of last year" aspect={2/1} />
             </div>
             <div className="listContainer">
               <div className="listContainer_title">Latest Transaction</div>

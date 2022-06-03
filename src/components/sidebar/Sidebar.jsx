@@ -9,12 +9,15 @@ import DnsIcon from '@mui/icons-material/Dns';
 import SettingsIcon from '@mui/icons-material/Settings';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LogoutIcon from '@mui/icons-material/Logout';
+import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
   return (
     <div className='sidebar'>
         <div className="top">
+            <Link to="/" style={{ textDecoration: "none" }}>
             <span className="logo">NETFLIX</span>
+            </Link>
         </div>
         <hr/>
 
@@ -25,15 +28,19 @@ const Sidebar = () => {
                     <span>Your Profile</span>
                 </div>
                 <p className="title">MAIN PAGE</p>
-                <li>
-                    <DashboardIcon className='center_logo' />
-                    <span>Dashboard</span>
-                </li>
+                <Link to="/" style={{ textDecoration: "none" }}>
+                    <li>
+                        <DashboardIcon className='center_logo' />
+                        <span>Dashboard</span>
+                    </li>
+                </Link>
                 <p className="title">LIST</p>
-                <li>
-                    <PersonOutlineIcon className='center_logo' />
-                    <span>Users</span>
-                </li>
+                <Link to="/user" style={{ textDecoration: "none" }}>
+                    <li>
+                        <PersonOutlineIcon className='center_logo' />
+                        <span>Users</span>
+                    </li>
+                </Link>
                 <li>
                     <InventoryIcon className='center_logo' />
                     <span>Products</span>

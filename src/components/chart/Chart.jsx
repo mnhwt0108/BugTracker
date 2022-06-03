@@ -13,11 +13,11 @@ const data = [
 ];
 
 
-function Chart() {
+function Chart({aspect, title}) {
   return (
     <div className='chart'>
-      <div className="title">Last Year</div>
-       <ResponsiveContainer width="100%" height="100%">
+      <div className="title">{title}</div>
+       <ResponsiveContainer width="100%" aspect={aspect}>
         <LineChart
           width={600}
           height={300}
